@@ -1,9 +1,14 @@
 import React from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
+
+
 import Navbar from './misc/Navbar'
-import Home from './misc/Home'
-import Properties from './properties/Properties'
-import PropertyDetail from './properties/PropertyDetail'
+import Home from './pages/Home'
+import Properties from './pages/Properties'
+import PropertyDetail from './pages/PropertyDetail'
+import Login from './pages/Login'
+import Register from './pages/Register'
+
 
 class App extends React.Component {
   render() {
@@ -11,8 +16,7 @@ class App extends React.Component {
       <div className='app'>
         <Navbar/>
 
-        <main className='container'>
-          <BrowserRouter>
+        <main className='container margin-navbar'>
             <Switch>
               <Route exact path='/'>
                 <Home/>
@@ -22,13 +26,17 @@ class App extends React.Component {
                 <Properties/>
               </Route>
 
-              <Route exact path='/properties/:id'>
-                <PropertyDetail/>
-              </Route>
-            </Switch>
-            
-          </BrowserRouter>
+              <Route exact path='/properties/:id' component={PropertyDetail} />
 
+              <Route exact path="/login">
+                <Login/>
+              </Route>
+
+              <Route exact path="/register">
+                <Register/>
+              </Route>
+              
+            </Switch>
 
         </main> 
       </div>
@@ -37,4 +45,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default App

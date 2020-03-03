@@ -16,13 +16,26 @@ http.interceptors.response.use(
   }
 )
 
-const getProperties = () => http.get('/properties')
-const getProperty = () => http.get('/properties/:id')
+//Property
+const getProperties = (type) => http.get('/properties', { params: { type } })
+const getProperty = (id) => http.get(`/properties/${id}`)
 
+//User
+const login = ({ email, password }) => http.post('/login', { email,password })
+const logout = () => http.post('/logout')
+const register = (data) => http.post('/users', data)
+
+//Message
+const sendMessage = (id, data) => http.post(`/messages/${id}`, data)
+const getMessages = (type) => http.get('/messages', { params: { type } })
 
 
 export default {
   getProperties,
-  getProperty
-  
+  getProperty,
+  login,
+  logout,
+  register,
+  sendMessage,
+  getMessages
 }
