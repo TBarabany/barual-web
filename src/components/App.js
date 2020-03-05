@@ -8,7 +8,7 @@ import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
 import Login from './pages/Login'
 import Register from './pages/Register'
-
+import Footer from './misc/Footer'
 
 class App extends React.Component {
   render() {
@@ -39,6 +39,7 @@ class App extends React.Component {
             </Switch>
 
         </main> 
+      <Footer/>
       </div>
     )
   }

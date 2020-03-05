@@ -48,24 +48,25 @@ class Login extends React.Component {
     }
 
     return (
-      <div className="Login"> 
-        <form onSubmit={this.handleSubmit}>
-          
+      <div className="Login text"> 
+        <form onSubmit={this.handleSubmit} className="form-signin">
+          <img className="mb-4" src="/logo" alt="" width="72" height="72" />
+          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="sr-only">Email</label>
             <input
               value={this.state.data.email}
               onChange={this.handleChange}
               autoComplete="off"
               name="email"
-              className={`for,-control ${errorClassName}`}
+              className={`form-control ${errorClassName}`}
               id="email"
               placeholder="Enter email"
             />
           </div>
 
           <div className="form-group mb-5">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="sr-only">Password</label>
             <input
               value={this.state.data.password}
               onChange={this.handleChange}
@@ -75,17 +76,16 @@ class Login extends React.Component {
               id="password"
               placeholder="Password"
             />
-          </div>
+          </div>  
 
           <button
             type="submit"
-            className= "btn btn-block btn-primary mb-3"
+            className= "btn btn-lg btn-primary btn-block"
             disabled={this.state.loading}
             >
               Log in 
           </button>
-
-          <Link to="/signup">Register</Link>
+          
         </form>
       </div>
     )
